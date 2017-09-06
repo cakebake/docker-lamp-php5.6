@@ -1,10 +1,26 @@
 version: '2.1'
 services:
   php:
-    container_name: php
+    container_name: php56
     hostname: php
     build: ./php
+    depends_on:
+      - db
     volumes:
+      - "./php/conf.d/00-ioncube.ini:/usr/local/etc/php/conf.d/00-ioncube.ini"
+      - "./php/conf.d/99-custom.ini:/usr/local/etc/php/conf.d/99-custom.ini"
       - "./htdocs:/var/www/html"
     ports:
       - "8080:80"
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: database
+    volumes:
+      - ./mysql/conf.d/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./mysql/data:/var/lib/mysql
+    ports:
+      - "8181:3306"

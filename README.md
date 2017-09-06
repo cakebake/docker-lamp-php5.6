@@ -10,6 +10,7 @@ Features
 -	Zend OPcache
 -	Xdebug
 -	Composer
+-	MySQL
 
 Web access: http://localhost:8080/
 
@@ -39,10 +40,10 @@ Bash into
 ---------
 
 ```
-docker exec -ti php /bin/bash
+docker exec -ti php56 /bin/bash
 ```
 
-> Container name is `php`
+> Container name is `php56`
 
 Stop
 ----
