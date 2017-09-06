@@ -57,7 +57,7 @@ docker-compose up
 or
 
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 > Param `-d` runs container in background (detach)
