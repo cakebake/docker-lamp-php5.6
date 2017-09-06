@@ -40,10 +40,10 @@ Bash into
 ---------
 
 ```
-docker exec -ti php56 /bin/bash
+docker exec -ti dockerlampphp56_php_1 /bin/bash
 ```
 
-> Container name is `php56`
+> Container name is `dockerlampphp56_php_1`. Change it to your container name.
 
 Stop
 ----

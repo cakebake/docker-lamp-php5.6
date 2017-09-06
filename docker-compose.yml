@@ -1,7 +1,6 @@
 version: '2.1'
 services:
   php:
-    container_name: php56
     hostname: php
     build: ./php
     depends_on:
