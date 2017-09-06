@@ -9,6 +9,13 @@ services:
     volumes:
       - "./php/conf.d/00-ioncube.ini:/usr/local/etc/php/conf.d/00-ioncube.ini"
       - "./php/conf.d/99-custom.ini:/usr/local/etc/php/conf.d/99-custom.ini"
+      - "./php/home/.bash_aliases:/root/.bash_aliases"
+      - "./php/home/.bash_git:/root/.bash_git"
+      - "./php/home/.bash_profile:/root/.bash_profile"
+      - "./php/home/.bashrc:/root/.bashrc"
+      - "./php/home/.git-completion.bash:/root/.git-completion.bash"
+      - "./php/home/.git-prompt.sh:/root/.git-prompt.sh"
+      - "./php/home/.vimrc:/root/.vimrc"
       - "./htdocs:/var/www/html"
     ports:
       - "8080:80"

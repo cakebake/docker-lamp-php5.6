@@ -12,6 +12,7 @@ Linux/Apache/MySQL/PHP development environment
 -	Composer
 -	MySQL (Container is stateless and data is mapped to `./mysql/data` directory)
 -	phpMyAdmin
+-	Colored bash prompt with git support
 
 ### Web access
 
