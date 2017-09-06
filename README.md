@@ -10,7 +10,7 @@ Linux/Apache/MySQL/PHP development environment
 -	Zend OPcache
 -	Xdebug (Set breakpoint in code with function `xdebug_break()`\)
 -	Composer
--	MySQL
+-	MySQL (Container is stateless and data is mapped to `./mysql/data` directory)
 -	phpMyAdmin
 
 ### Web access
@@ -75,4 +75,4 @@ Stop
 docker-compose down
 ```
 
-> To stop all containers and kill all volumes `docker-compose down --volumes`. Data (mysql databases, ...) will be lost!
+> To stop all containers AND kill all volumes `docker-compose down --volumes`
