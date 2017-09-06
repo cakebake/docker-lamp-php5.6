@@ -41,6 +41,8 @@ Root Password: root
 Build
 -----
 
+If you are running under linux, please check your users pid and change pid in file `./php/Dockerfile`. Example: `RUN usermod -o -u 1000 www-data`
+
 ```
 docker-compose build
 ```

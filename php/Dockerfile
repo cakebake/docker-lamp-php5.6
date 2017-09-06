@@ -53,6 +53,9 @@ RUN curl -SL http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_
 # apache modules
 RUN a2enmod rewrite
 
+# apache rights
+RUN usermod -o -u 1000 www-data
+
 # cleanup
 RUN apt-get clean \
     && rm -fr /tmp/*
