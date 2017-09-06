@@ -1,18 +1,41 @@
 Docker LAMP
 ===========
 
-incl. Ioncube Loader & xDebug
+Linux/Apache/MySQL/PHP development environment
 
-Features
+### Features
 
--	PHP 5.6
+-	PHP 5.6 (CLI & Apache 2.0 Handler)
 -	ionCube PHP Loader
 -	Zend OPcache
 -	Xdebug
 -	Composer
 -	MySQL
+-	phpMyAdmin
 
-Web access: http://localhost:8080/
+### Web access
+
+http://localhost:8080/
+
+### phpMyAdmin access
+
+http://localhost:8282/
+
+### MySQL access
+
+```
+Host internal: db
+Port internal: 3306
+
+Host external/remote: localhost
+Port external/remote: 8181
+
+User: user
+Password: password
+Database: database
+
+Root Password: root
+```
 
 Build
 -----

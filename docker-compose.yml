@@ -3,6 +3,7 @@ services:
   php:
     hostname: php
     build: ./php
+    restart: always
     depends_on:
       - db
     volumes:
@@ -23,3 +24,17 @@ services:
       - ./mysql/data:/var/lib/mysql
     ports:
       - "8181:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    ports:
+     - 8282:80
+    volumes:
+     - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
