@@ -10,7 +10,7 @@ Linux/Apache/MySQL/PHP development environment
 -	Zend OPcache
 -	Xdebug (Set breakpoint in code with function `xdebug_break()`\)
 -	Composer
--	MySQL (Container is stateless and data is mapped to `./mysql/data` directory)
+-	MySQL 5.6 (Container is stateless and data is mapped to `./mysql/data` directory)
 -	phpMyAdmin
 -	Colored bash prompt with git support
 
