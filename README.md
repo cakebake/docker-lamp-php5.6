@@ -8,7 +8,7 @@ Linux/Apache/MySQL/PHP development environment
 -	PHP 5.6 (CLI & Apache 2.0 Handler)
 -	ionCube PHP Loader
 -	Zend OPcache
--	Xdebug
+-	Xdebug (Set breakpoint in code with function `xdebug_break()`\)
 -	Composer
 -	MySQL
 -	phpMyAdmin
