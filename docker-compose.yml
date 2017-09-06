@@ -1,0 +1,10 @@
+version: '2.1'
+services:
+  php:
+    container_name: php
+    hostname: php
+    build: ./php
+    volumes:
+      - "./htdocs:/var/www/html"
+    ports:
+      - "8080:80"
