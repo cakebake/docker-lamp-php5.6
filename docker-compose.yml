@@ -3,7 +3,6 @@ services:
   php:
     hostname: php
     build: ./php
-    restart: always
     depends_on:
       - db
     volumes:
@@ -33,7 +32,6 @@ services:
       - "8181:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    restart: always
     depends_on:
       - db
     environment:
