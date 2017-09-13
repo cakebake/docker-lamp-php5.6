@@ -1,11 +1,11 @@
 Docker LAMP
 ===========
 
-Linux/Apache/MySQL/PHP development environment
+Linux/Apache/MySQL/PHP development environment optimized for xt:Commerce and TYPO3.
 
 ### Features
 
--	PHP 5.6 (CLI & Apache 2.0 Handler)
+-	**PHP 5.6** (CLI & Apache 2.0 Handler)
 -	ionCube PHP Loader
 -	Zend OPcache
 -	Xdebug (Set breakpoint in code with function `xdebug_break()`\)
@@ -13,6 +13,9 @@ Linux/Apache/MySQL/PHP development environment
 -	MySQL 5.6 (Container is stateless and data is mapped to `./mysql/data` directory)
 -	phpMyAdmin
 -	Colored bash prompt with git support
+-	Imagemagick
+-	Default locale `de_DE.UTF-8`
+-	Default localtime `Europe/Berlin`
 
 ### Web access
 

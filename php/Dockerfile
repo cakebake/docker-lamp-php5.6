@@ -1,9 +1,11 @@
 FROM php:5.6-apache
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 EXPOSE 80
 
 # debian packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     htop \
     wget \
     lynx \
@@ -19,7 +21,30 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     mysql-client \
     unzip \
-    git
+    git \
+    locales \
+    tzdata \
+    graphicsmagick \
+    imagemagick \
+    libmagickwand-dev
+
+# locales
+RUN printf 'en_GB.UTF-8 UTF-8\n' >> /etc/locale.gen \
+    && printf 'en_US.UTF-8 UTF-8\n' >> /etc/locale.gen \
+    && printf 'de_DE.UTF-8 UTF-8\n' >> /etc/locale.gen \
+    && locale-gen
+
+ENV LANGUAGE=de_DE.UTF-8
+ENV LC_ALL=de_DE.UTF-8
+ENV LC_CTYPE=UTF-8
+ENV LANG=de_DE.UTF-8
+
+# localtime
+ENV TZ='Europe/Berlin'
+RUN echo $TZ > /etc/timezone \
+    && rm /etc/localtime \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata
 
 # php modules
 RUN docker-php-ext-install -j$(nproc) \
@@ -35,13 +60,13 @@ RUN docker-php-ext-install -j$(nproc) \
     xml \
     soap \
     opcache \
-    opcache \
+    zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 
-# php xdebug
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
+# php pecl modules
+RUN pecl install xdebug imagick \
+    && docker-php-ext-enable xdebug imagick
 
 # php composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -56,6 +81,11 @@ RUN a2enmod rewrite
 # apache rights
 RUN usermod -o -u 1000 www-data
 
+# imagemagick
+RUN ln -s /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/MagickWand-config /usr/bin/
+
 # cleanup
 RUN apt-get clean \
-    && rm -fr /tmp/*
+    && rm -fr /var/lib/apt/lists/* \
+    && rm -fr /tmp/* \
+    && rm -fr /var/tmp/*
