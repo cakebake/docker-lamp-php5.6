@@ -65,7 +65,7 @@ RUN docker-php-ext-install -j$(nproc) \
     && docker-php-ext-install -j$(nproc) gd
 
 # php pecl modules
-RUN pecl install xdebug imagick \
+RUN pecl install xdebug-2.5.5 imagick \
     && docker-php-ext-enable xdebug imagick
 
 # php composer
