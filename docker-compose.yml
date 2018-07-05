@@ -27,7 +27,7 @@ services:
       MYSQL_DATABASE: database
     volumes:
       - ./mysql/conf.d/custom.cnf:/etc/mysql/conf.d/custom.cnf
-      - ./mysql/data:/var/lib/mysql
+      - ./mysql/data:/var/lib/mysql:rw
     ports:
       - "8181:3306"
   phpmyadmin:
